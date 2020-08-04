@@ -21,7 +21,7 @@ def smooth_data(path, L_cell=10.0, vmax_cut=300.0, sigma_smooth=1.0, L_box=720.0
     vmax = halo_data['vcirc_max']
     ii = (vmax>vmax_cut)
     pos_cut = halo_data['pos'][ii]+L_box*0.5
-    vel_cut = halo_data['vel'][ii]+L_box*0.5
+    vel_cut = halo_data['vel'][ii]
     print("Done selecting data by vmax")
 
     N_side = np.int(L_box/L_cell)
