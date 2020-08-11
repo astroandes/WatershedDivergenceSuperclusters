@@ -59,7 +59,7 @@ compute_all = True
 
 if compute_all:
 #    div_files = glob.glob("/Users/forero/data/AbacusCosmos/AbacusCosmos_720box_planck_00_00_FoF_halos_z0.100/fields/velocity_*.hdf5")
-    div_files = glob.glob("/Users/forero/github/WatershedAbacus/nb/mock_divergence_mesh_128*")
+    div_files = glob.glob("/Users/forero/github/WatershedAbacus/nb/mock_divergence_mesh_360_box_720_slim_20.h5")
     print(div_files)
     for div_file in div_files:
         find_watershed(div_file)

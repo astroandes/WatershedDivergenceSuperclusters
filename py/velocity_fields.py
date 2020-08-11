@@ -84,6 +84,6 @@ full_computation = True
 if full_computation:
     path = "/Users/forero/data/AbacusCosmos/AbacusCosmos_720box_planck_00_00_FoF_halos_z0.100/"
     L_cell = 2.0
-    for sigma_smooth in [3.0, 2.5, 2.0, 1.5, 1.0]:
-        for vmax_cut in [200.0]:
+    for sigma_smooth in [3.0]:
+        for vmax_cut in [125.0, 180.0, 300.0]:
             smooth_data(path, L_cell=L_cell, vmax_cut=vmax_cut, sigma_smooth=sigma_smooth)
