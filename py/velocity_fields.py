@@ -13,7 +13,6 @@ def smooth_data(path, L_cell=10.0, vmax_cut=300.0, sigma_smooth=1.0, L_box=720.0
     print(L_box, L_cell, N_side)
     output_path = os.path.join(path, "fields")
     output_name = "AbacusCosmos_720box_planck_00_0_FoF"
-    output_filename = os.path.join(output_path, "velocity_{}_vmax_{}_sigma_{:.1f}_nside_{}.hdf5".format(output_name, vmax_cut, sigma_smooth, N_side))
 
     halo_data = ach.read_halos_FoF(path)
     print("Done reading data")
@@ -70,12 +69,12 @@ def smooth_data(path, L_cell=10.0, vmax_cut=300.0, sigma_smooth=1.0, L_box=720.0
     print("Finished Divergence")
 
     output_path = os.path.join(path, "fields")
-    output_filename = os.path.join(output_path, "velocity_{}_vmax_{}_sigma_{:.1f}_nside_{}.hdf5".format(output_name, vmax_cut, sigma_smooth, N_side))
+    output_filename = os.path.join(output_path, "mock_{}_vmax_{}_sigma_{:.1f}_nside_{}.hdf5".format(output_name, vmax_cut, sigma_smooth, N_side))
     
     h5f = h5py.File(output_filename, 'w')
-    h5f.create_dataset('vel_x', data=vel_x_grid_smooth)
-    h5f.create_dataset('vel_y', data=vel_y_grid_smooth)
-    h5f.create_dataset('vel_z', data=vel_z_grid_smooth)
+#    h5f.create_dataset('vel_x', data=vel_x_grid_smooth)
+#    h5f.create_dataset('vel_y', data=vel_y_grid_smooth)
+#    h5f.create_dataset('vel_z', data=vel_z_grid_smooth)
     h5f.create_dataset('divergence', data=divergence)
     h5f.close()
     print("Finished writing to {}".format(output_filename))
@@ -84,6 +83,6 @@ full_computation = True
 if full_computation:
     path = "/Users/forero/data/AbacusCosmos/AbacusCosmos_720box_planck_00_00_FoF_halos_z0.100/"
     L_cell = 2.0
-    for sigma_smooth in [3.0]:
-        for vmax_cut in [125.0, 180.0, 300.0]:
+    for sigma_smooth in [2.0, 3.0, 5.0, 7.0, 10.0]:
+        for vmax_cut in [300.0]:
             smooth_data(path, L_cell=L_cell, vmax_cut=vmax_cut, sigma_smooth=sigma_smooth)
