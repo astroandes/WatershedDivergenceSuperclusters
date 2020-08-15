@@ -46,7 +46,6 @@ def find_watershed(divergence_filename):
         if((n_cell%100000)==0):
             print("{:.2f} % of total. {} groups".format(100*n_cell/n_total,n_group))
     watershed_group.reshape((N_side, N_side, N_side))
-#    output_filename = divergence_filename.replace("velocity_", "watershed_")
     output_filename = divergence_filename.replace("mock_", "watershed_mock_")
     h5f = h5py.File(output_filename, 'w')
     h5f.create_dataset('watershed_group', data=watershed_group)
@@ -57,8 +56,7 @@ def find_watershed(divergence_filename):
 compute_all = True
 
 if compute_all:
-#    div_files = glob.glob("/Users/forero/data/AbacusCosmos/AbacusCosmos_720box_planck_00_00_FoF_halos_z0.100/fields/velocity_*.hdf5")
-    div_files = glob.glob("/global/cscratch1/sd/forero/WatershedAbacus/data/mock_divergence_mesh_360_box_720_slim_*.h5")
+    div_files = glob.glob("/global/cscratch1/sd/forero/WatershedAbacus/data/mock_*.h5")
     print(div_files)
     for div_file in div_files:
         find_watershed(div_file)
