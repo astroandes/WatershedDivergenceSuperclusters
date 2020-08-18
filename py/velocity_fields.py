@@ -69,7 +69,7 @@ def smooth_data(path, L_cell=10.0, vmax_cut=300.0, sigma_smooth=1.0, L_box=720.0
     print("Finished Divergence")
 
     output_path = os.path.join(path, "fields")
-    output_filename = os.path.join(output_path, "mock_{}_vmax_{}_sigma_{:.1f}_nside_{}.hdf5".format(output_name, vmax_cut, sigma_smooth, N_side))
+    output_filename = os.path.join(output_path, "mock_{}_vmax_{}_s_{:.1f}_nside_{}.hdf5".format(output_name, vmax_cut, sigma_smooth*L_cell, N_side))
     
     h5f = h5py.File(output_filename, 'w')
 #    h5f.create_dataset('vel_x', data=vel_x_grid_smooth)
@@ -82,7 +82,7 @@ def smooth_data(path, L_cell=10.0, vmax_cut=300.0, sigma_smooth=1.0, L_box=720.0
 full_computation = True
 if full_computation:
     path = "/Users/forero/data/AbacusCosmos/AbacusCosmos_720box_planck_00_00_FoF_halos_z0.100/"
-    L_cell = 2.0
-    for sigma_smooth in [2.0, 3.0, 5.0, 7.0, 10.0]:
-        for vmax_cut in [300.0]:
+    L_cell = 4.0
+    for sigma_smooth in [1.0, 2.0, 5.0, 10.0, 15.0]:
+        for vmax_cut in [150.0]:
             smooth_data(path, L_cell=L_cell, vmax_cut=vmax_cut, sigma_smooth=sigma_smooth)
