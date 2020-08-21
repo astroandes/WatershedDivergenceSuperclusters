@@ -56,7 +56,7 @@ def find_watershed(divergence_filename):
 compute_all = True
 
 if compute_all:
-    div_files = glob.glob("/Users/forero/data/AbacusCosmos/AbacusCosmos_720box_planck_00_00_FoF_halos_z0.100/fields/mock_AbacusCosmos_720box_planck_00_0_FoF_vmax_150.0*")
+    div_files = glob.glob("/Users/forero/github/WatershedAbacus/nb/mock_divergence_mesh_100*")
     print(div_files)
     for div_file in div_files:
         find_watershed(div_file)

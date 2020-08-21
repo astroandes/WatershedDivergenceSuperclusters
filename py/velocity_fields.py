@@ -82,7 +82,7 @@ def smooth_data(path, L_cell=10.0, vmax_cut=300.0, sigma_smooth=1.0, L_box=720.0
 full_computation = True
 if full_computation:
     path = "/Users/forero/data/AbacusCosmos/AbacusCosmos_720box_planck_00_00_FoF_halos_z0.100/"
-    L_cell = 4.0
-    for sigma_smooth in [1.0, 2.0, 5.0, 10.0, 15.0]:
-        for vmax_cut in [150.0]:
+    L_cell = 5.0
+    for sigma_smooth in [1.0, 2.0, 4.0, 6.0, 8.0]:
+        for vmax_cut in [200.0]:
             smooth_data(path, L_cell=L_cell, vmax_cut=vmax_cut, sigma_smooth=sigma_smooth)
