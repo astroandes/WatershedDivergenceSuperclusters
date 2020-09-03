@@ -1,2 +1,3 @@
-# WatershedAbacus
-Watershed computations on Abacus data
+# Watershed Divergence Superclusters
+
+Finding and characterizing superclusters from velocity divergence fields
